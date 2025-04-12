@@ -31,7 +31,16 @@ for (let row = 0; row < 3; row++) {
 
 // ○か×を配置
 function putMark(row,col) {
-
+    const cell = document.querySelector('#cell_${row}_${col}');
+    if (turn === 1) {
+        cell.textContent ="○"
+        cell.classList.add("○")；
+        cells[row][col] = 1;
+    } else {
+        cell.textContent ="×";
+        cell.classList.add("×");
+        cells[row][col] = -1;
+    }
 }
 
 // ゲームの状態を確認
