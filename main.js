@@ -6,13 +6,13 @@ const DRAW_GAME = 0; // 引き分け
 
 // セルをクリックしたときのイベント登録
 for (let row = 0; row < 3; row++) {
-    const col = 0; col< 3; col++) {
+    for (let col = 0; col < 3; col++) {
         const cell = document.querySelector('#cell_${row}_${col}');
         cell.addEventListener("click", () => {
             if (result !== CONTINUE) {
                 window.location.reload(true); // 決着がついた後にクリックしてリロード
             }
-            putMark(row,col);　// ○か×を配置
+            putMark(row, col);　// ○か×を配置
             turn = turn * -1;
             check(); // ゲームの状態を確認
         });
