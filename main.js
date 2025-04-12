@@ -4,6 +4,16 @@ const WIN_PLAYER_1 = 1; // ○の勝利
 const WIN_PLAYER_2 = -1; // ×の勝利
 const DRAW_GAME = 0; // 引き分け
 
+const cells =[ // カラなら０、　○なら1, ×なら-1
+    // 二次元配列を記述
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+
+]
+let turn = 1; // ○なら１、　×なら-1
+let result = CONTINUE;
+
 // セルをクリックしたときのイベント登録
 for (let row = 0; row < 3; row++) {
     for (let col = 0; col < 3; col++) {
