@@ -22,9 +22,11 @@ for (let row = 0; row < 3; row++) {
             if (result !== CONTINUE) {
                 window.location.reload(true); // 決着がついた後にクリックしてリロード
             }
+            if (cells[row][col] === 0) { // 配置可能か判定
             putMark(row, col);　// ○か×を配置
             turn = turn * -1;
             check(); // ゲームの状態を確認
+            }
         });
     }
 }
