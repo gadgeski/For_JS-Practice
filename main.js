@@ -67,4 +67,15 @@ function judge(_cells) {
         [_cells[0][0], _cells[1][1], _cells[2][2]],
         [_cells[0][2], _cells[1][1], _cells[2][0]],
     ];
+    // 勝敗チェック
+    for (let line of lines) {
+        const sum = line[0] + line[1] + line[2];
+        if (sum === 3) {
+            return WIN_PLAYER_1;
+
+        }
+        if (sum === -3) {
+            return WIN_PLAYER_2;
+        }
+    }
 }
