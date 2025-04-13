@@ -1,7 +1,7 @@
 // ゲームの状態
 const CONTINUE = null; // 決着がついてない
 const WIN_PLAYER_1 = 1; // ○の勝利
-const WIN_PLAYER_2 = -1; // ×の勝利
+const WIN_PLAYER_2 = -1; // xの勝利
 const DRAW_GAME = 0; // 引き分け
 
 const cells =[ // カラなら０、　○なら1, ×なら-1
@@ -11,7 +11,7 @@ const cells =[ // カラなら０、　○なら1, ×なら-1
     [0, 0, 0],
 
 ]
-let turn = 1; // ○なら１、　×なら-1
+let turn = 1; // ○なら１、　xなら-1
 let result = CONTINUE;
 
 // セルをクリックしたときのイベント登録
@@ -24,6 +24,8 @@ for (let row = 0; row < 3; row++) {
             }
             if (cells[row][col] === 0) { // 配置可能か判定
             putMark(row, col);　// ○か×を配置
+            turn = turn * -1;
+            thinkAI(); // AIに考えてもらう
             turn = turn * -1;
             check(); // ゲームの状態を確認
             }
@@ -54,12 +56,12 @@ function check() {
             message_textContent = "○の勝ち!"
             break;
         case WIN_PLAYER_2:
-            message_textContent = "×の勝ち!"
+            message_textContent = "xの勝ち!"
             break;
         case DRAW_GAME;
             message_textContent = "引き分け!";
             break;
-            
+
     }
     
 }
@@ -101,4 +103,16 @@ function judge(_cells) {
     }
     return DRAW_GAME;
 
+}
+
+// AIに考えてもらう
+function thinkAI() {
+    const hand = think(cells, -1, 5);
+    if (hand) {
+        const cell = document.querySelector('#cell_${hand[0]}_${hand[1]}');
+        cell.textContent ="x";
+        cell.classList.add("x");
+        cells[hand[0]][hand[1]] = -1,
+
+    }
 }
