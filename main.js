@@ -53,13 +53,16 @@ function check() {
     const message = document.querySelector("#message");
     switch (result) {
         case WIN_PLAYER_1:
-            message_textContent = "○の勝ち!"
+            message.textContent = "○の勝ち!";
+            // message_textContentをmessage.textContentに修正
             break;
         case WIN_PLAYER_2:
-            message_textContent = "xの勝ち!"
+            message.textContent = "xの勝ち!";
+            // message_textContentをmessage.textContentに修正
             break;
-        case DRAW_GAME;
-            message_textContent = "引き分け!";
+        case DRAW_GAME:
+            message.textContent = "引き分け!";
+            // message_textContentをmessage.textContentに修正
             break;
 
     }
@@ -108,7 +111,7 @@ function judge(_cells) {
 function thinkAI() {
     const hand = think(cells, -1, 5);
     if (hand) {
-        const cell = document.querySelector('#cell_${hand[0]}_${hand[1]}');
+        const cell = document.querySelector(`#cell_${hand[0]}_${hand[1]}`); // テンプレートリテラルを修正
         cell.textContent ="x";
         cell.classList.add("x");
         cells[hand[0]][hand[1]] = -1,
