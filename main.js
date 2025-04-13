@@ -78,4 +78,14 @@ function judge(_cells) {
             return WIN_PLAYER_2;
         }
     }
+    // 引き分けチェック
+    for (let row = 0; row < 3; row++) {
+        for (let col = 0; col < 3; col++) {
+            if (_cells[row][col] === 0) {
+                return CONTINUE;
+            }
+        }
+    }
+    return DRAW_GAME;
+
 }
