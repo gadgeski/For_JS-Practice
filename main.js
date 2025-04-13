@@ -114,7 +114,7 @@ function thinkAI() {
         const cell = document.querySelector(`#cell_${hand[0]}_${hand[1]}`); // テンプレートリテラルを修正
         cell.textContent ="x";
         cell.classList.add("x");
-        cells[hand[0]][hand[1]] = -1,
-
+        cells[hand[0]][hand[1]] = -1;
+        // -1,を-1;に修正
     }
 }
