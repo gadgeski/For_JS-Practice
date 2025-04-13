@@ -17,7 +17,7 @@ let result = CONTINUE;
 // セルをクリックしたときのイベント登録
 for (let row = 0; row < 3; row++) {
     for (let col = 0; col < 3; col++) {
-        const cell = document.querySelector('#cell_${row}_${col}');
+        const cell = document.querySelector(`#cell_${row}_${col}`);
         cell.addEventListener("click", () => {
             if (result !== CONTINUE) {
                 window.location.reload(true); // 決着がついた後にクリックしてリロード
@@ -35,13 +35,13 @@ for (let row = 0; row < 3; row++) {
 
 // ○か×を配置
 function putMark(row,col) {
-    const cell = document.querySelector('#cell_${row}_${col}');
+    const cell = document.querySelector(`#cell_${row}_${col}`);
     if (turn === 1) {
-        cell.textContent ="○"
-        cell.classList.add("○")；
+        cell.textContent = "○";
+        cell.classList.add("○");
         cells[row][col] = 1;
     } else {
-        cell.textContent ="x";
+        cell.textContent = "x";
         cell.classList.add("x");
         cells[row][col] = -1;
     }
@@ -87,7 +87,6 @@ function judge(_cells) {
         const sum = line[0] + line[1] + line[2];
         if (sum === 3) {
             return WIN_PLAYER_1;
-
         }
         if (sum === -3) {
             return WIN_PLAYER_2;
