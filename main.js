@@ -4,7 +4,7 @@ const WIN_PLAYER_1 = 1; // ○の勝利
 const WIN_PLAYER_2 = -1; // xの勝利
 const DRAW_GAME = 0; // 引き分け
 
-const cells =[ // カラなら０、　○なら1, ×なら-1
+const cells =[ // カラなら０、　○なら1, xなら-1
     // 二次元配列を記述
     [0, 0, 0],
     [0, 0, 0],
@@ -23,7 +23,7 @@ for (let row = 0; row < 3; row++) {
                 window.location.reload(true); // 決着がついた後にクリックしてリロード
             }
             if (cells[row][col] === 0) { // 配置可能か判定
-            putMark(row, col);　// ○か×を配置
+            putMark(row, col);　// ○かxを配置
             turn = turn * -1;
             thinkAI(); // AIに考えてもらう
             turn = turn * -1;
@@ -41,8 +41,8 @@ function putMark(row,col) {
         cell.classList.add("○")；
         cells[row][col] = 1;
     } else {
-        cell.textContent ="×";
-        cell.classList.add("×");
+        cell.textContent ="x";
+        cell.classList.add("x");
         cells[row][col] = -1;
     }
 }
