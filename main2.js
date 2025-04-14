@@ -38,11 +38,11 @@ function putMark(row,col) {
     const cell = document.querySelector(`#cell_${row}_${col}`);
     if (turn === 1) {
         // 半角と全角を逆にすると、表示はどうなるか？
-        cell.textContent = "o";
-        cell.classList.add("◯");
+        cell.textContent = "〇";
+        cell.classList.add("o");
         cells[row][col] = 1;
     } else {
-        cell.textContent = "x";
+        cell.textContent = "✕";
         cell.classList.add("x");
         cells[row][col] = -1;
     }
@@ -54,11 +54,11 @@ function check() {
     const message = document.querySelector("#message");
     switch (result) {
         case WIN_PLAYER_1:
-            message.textContent = "○の勝ち!";
+            message.textContent = "〇の勝ち!";
             // message_textContentをmessage.textContentに修正
             break;
         case WIN_PLAYER_2:
-            message.textContent = "xの勝ち!";
+            message.textContent = "✕の勝ち!";
             // message_textContentをmessage.textContentに修正
             break;
         case DRAW_GAME:
@@ -113,7 +113,7 @@ function thinkAI() {
     const hand = think(cells, -1, 5);
     if (hand) {
         const cell = document.querySelector(`#cell_${hand[0]}_${hand[1]}`); // テンプレートリテラルを修正
-        cell.textContent ="x";
+        cell.textContent ="✕";
         cell.classList.add("x");
         cells[hand[0]][hand[1]] = -1;
         // -1,を-1;に修正
