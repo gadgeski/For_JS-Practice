@@ -37,8 +37,9 @@ for (let row = 0; row < 3; row++) {
 function putMark(row,col) {
     const cell = document.querySelector(`#cell_${row}_${col}`);
     if (turn === 1) {
-        cell.textContent = "○";
-        cell.classList.add("○");
+        cell.textContent = "◯";
+        cell.classList.add("o");
+        // 半角のoに変更
         cells[row][col] = 1;
     } else {
         cell.textContent = "x";
