@@ -13,6 +13,8 @@ const cells =[ // カラなら０、　○なら1, xなら-1
 ]
 let turn = 1; // ○なら１、　xなら-1
 let result = CONTINUE;
+let mode ="hard";
+// 難易度ハード追加
 
 // セルをクリックしたときのイベント登録
 for (let row = 0; row < 3; row++) {
@@ -31,6 +33,14 @@ for (let row = 0; row < 3; row++) {
             }
         });
     }
+}
+
+// モード切替時の処理
+const modeElements = document.querySelectorAll("input[name='mode']");
+for (let modeElement of modeElements) {
+    modeElements.addEventListener("change", (event) => {
+        mode = event.target.value;
+    });
 }
 
 // ○か×を配置
@@ -110,7 +120,7 @@ function judge(_cells) {
 
 // AIに考えてもらう
 function thinkAI() {
-    const hand = think(cells, -1, 5);
+    const hand = think(cells, -1, 9, mode === "easy");
     if (hand) {
         const cell = document.querySelector(`#cell_${hand[0]}_${hand[1]}`); // テンプレートリテラルを修正
         cell.textContent ="✕";
