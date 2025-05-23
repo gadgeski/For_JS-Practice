@@ -1,34 +1,40 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title>JS Practice</title>
-        <meta charset="UTF-8">
-        <script src="./ai.js" defer></script>
-        <script src="./main2.js" defer></script>
-        <link rel="stylesheet" href="./main.css">
-    </head>
-    <body>
-        <div id="back" class="hard">
-            <h1>わっしょいしょい</h1>
-            <!-- ここにマス目を配置 -->
-             <div id="game">
-                <div id="cell_0_0" class="cell"></div>
-                <div id="cell_0_1" class="cell"></div>
-                <div id="cell_0_2" class="cell"></div>
-                <div id="cell_1_0" class="cell"></div>
-                <div id="cell_1_1" class="cell"></div>
-                <div id="cell_1_2" class="cell"></div>
-                <div id="cell_2_0" class="cell"></div>
-                <div id="cell_2_1" class="cell"></div>
-                <div id="cell_2_2" class="cell"></div>
-                </div>
-             <div id="message"></div>
-             <div>
-                <label><input type="radio" name="mode" value="hard"
-                    checked>激ムズモード</label>
-                    <label><input type="radio" name="mode" value="easy">
-                        接待モードって何やねん!?</label>
-             </div>
-    </body>
+  <head>
+    <title>-JS Practice-</title>
+    <meta charset="UTF-8" />
+    <script src="ai.js" defer></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div id="back" class="hard">
+      <h1>マス目ゲーム的なアレ</h1>
+      <!-- ここにマス目を配置 -->
+      <div id="game">
+        <div id="cell_0_0" class="cell"></div>
+        <div id="cell_0_1" class="cell"></div>
+        <div id="cell_0_2" class="cell"></div>
+        <div id="cell_1_0" class="cell"></div>
+        <div id="cell_1_1" class="cell"></div>
+        <div id="cell_1_2" class="cell"></div>
+        <div id="cell_2_0" class="cell"></div>
+        <div id="cell_2_1" class="cell"></div>
+        <div id="cell_2_2" class="cell"></div>
+      </div>
+      <div id="message"></div>
+      <label
+        ><input
+          type="radio"
+          name="mode"
+          value="hard"
+          checked
+        />激ムズモード</label
+      >
+      <label
+        ><input type="radio" name="mode" value="easy" />
+        接待モードって何やねん!?</label
+      >
+    </div>
+  </body>
 </html>
